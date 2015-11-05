@@ -1,0 +1,84 @@
+<?php
+
+if( !empty($_POST['postr_content']) && $_POST['postr_content']!=null)
+	include 'src/postR.php';
+
+/*
+if( preg_match("/.*poyonet.*psts/",$referer) )
+	header("Location: top?ref");
+*/
+?>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+<link rel="stylesheet" href="skin/css/base.css" media="all">
+<link rel="stylesheet" href="skin/css/top.css" media="all">
+<script type="text/javascript" src="src/showMessage.js"></script>
+<script type="text/javascript" src="src/splitQuery.js"></script>
+<script type="text/javascript" src="src/doubleTrans.js"></script>
+</head>
+<body onLoad="showMessage(splitQuery('m'))">
+	<h1>ぽよねっと</h1>
+	<h2>掲示板</h2>
+    <div class="menu">
+        <label for="info_pnl" class="open_label">インフォメーション</label>
+        <input type="checkbox" id="info_pnl" class="on-off"/>
+        <ul>
+        	<li>ぽよねっと営業時間:7:30～24:00</li>
+        	<li>誹謗中傷は削除されます</li>
+        	<li>機能をどんどん追加したいのでリクエストあったら教えてください</li>
+            <li>ツイッターはじめました。技術的なことしかつぶやいていませんのでフォローはよく考えてから。<a href="https://twitter.com/POYONETMAN" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @POYONET</a></li>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </ul>
+
+
+        <label for="postr_pnl" class="open_label">投稿する</label>
+        <input type="checkbox" id="postr_pnl" class="on-off"/>
+        <ul>
+          <form id="postr" action="top" method="post" onSubmit="doubleTrans()">
+        	
+        	<li><label for="postr_request_name">名前（８文字まで）</label></li>
+			<li><input type="text" name="postr_request_name"  maxlength="8"></input></li>
+        	
+        	<li><label for="postr_content">内容（１４０文字まで）</label></li>
+			<li><textarea name="postr_content" rows="5" cols="15" maxlength="140" required>>></textarea></li>
+			
+			<li><input type="submit" name="postr_submit"value="投稿する"/></li>
+        
+          </form>
+        </ul>
+	<p><a href="top">もう一度読み込む</a></p>
+	<br>
+	<p id = "head"><a href="#bottom">ページの一番下へ</a></p>
+	
+	<?php
+		include 'src/showR.php';
+	?>
+	
+	</dl>
+	<p><a href="top">もう一度読み込む</a></p>
+	<br>
+	<p id = "bottom"><a href="#head">ページの一番上へ</a></p>
+	
+        <label for="postr_pnl2" class="open_label">投稿する</label>
+        <input type="checkbox" id="postr_pnl2" class="on-off"/>
+        <ul>
+          <form id="postr2" action="top" method="post" onSubmit="doubleTrans()">
+        	
+        	<li><label for="postr_request_name">名前（８文字まで）</label></li>
+			<li><input type="text" name="postr_request_name"  maxlength="8"></input></li>
+        	
+        	<li><label for="postr_content">内容（１４０文字まで）</label></li>
+			<li><textarea name="postr_content" rows="5" cols="15" maxlength="140" required>>></textarea></li>
+			
+			<li><input type="submit" name="postr_submit"value="投稿する"/></li>
+        
+          </form>
+        </ul>
+	
+	
+		<p id="copyright">Copyright (c) Poyonet All Rights Reserved.</p>
+	</div>
+</body>
+</html>
